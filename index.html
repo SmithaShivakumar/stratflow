@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratflow-ai | Strategic Operations Consulting for Scaling Tech Companies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2563eb;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+        
+        .problem h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .problem-card h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .services h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            border: 2px solid #e5e5e5;
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .service-card .price {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+            margin-top: 20px;
+        }
+        
+        /* Results Section */
+        .results {
+            background: #1e293b;
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .results h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .result-stat {
+            padding: 30px;
+        }
+        
+        .result-stat .number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+        
+        .result-stat .label {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+        
+        .about h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #4b5563;
+        }
+        
+        .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .credential {
+            text-align: center;
+        }
+        
+        .credential .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .credential .text {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">StratFlow-ai</div>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="mailto:info@stratflow-ai.com">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Scale Without the Chaos</h1>
+            <p>Strategic operations consulting for tech companies who've raised capital and need systems that actually work. PM • Product • Data • Finance.</p>
+            <a href="mailto:info@stratflow-ai.com?subject=Let's%20Talk" class="cta-button">Book a Discovery Call</a>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <h2>You've Hit a Growth Ceiling</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>❌ Roadmap Paralysis</h3>
+                    <p>Too many priorities. Everything's urgent. Your team doesn't know what to build next.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>❌ Data Blindspots</h3>
+                    <p>You're making million-dollar decisions with spreadsheets and gut feel.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>❌ Cross-Functional Chaos</h3>
+                    <p>Engineering, product, and sales are speaking different languages. Nothing ships on time.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>❌ Velocity Slowdown</h3>
+                    <p>You're hiring but shipping less. Coordination is eating productivity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>How I Help</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>🎯 Process Audit</h3>
+                    <p>2-week deep dive into your operations. I'll interview your team, audit workflows, and deliver a prioritized action plan.</p>
+                    <div class="price">Starting at $8,000</div>
+                </div>
+                <div class="service-card">
+                    <h3>🚀 PM Framework Build</h3>
+                    <p>Build scalable product management processes from scratch. Roadmap prioritization, sprint planning, stakeholder alignment.</p>
+                    <div class="price">$15,000 - $35,000</div>
+                </div>
+                <div class="service-card">
+                    <h3>📊 Data Infrastructure</h3>
+                    <p>Real-time dashboards that actually get used. Financial models, KPI tracking, automated reporting.</p>
+                    <div class="price">$12,000 - $25,000</div>
+                </div>
+                <div class="service-card">
+                    <h3>⚡ Strategic Retainer</h3>
+                    <p>Ongoing advisory. I'm embedded in your team 10-15 hours/month. Slack access, bi-weekly strategy calls.</p>
+                    <div class="price">$5,000 - $8,000/month</div>
+                </div>
+                <div class="service-card">
+                    <h3>💼 Fractional PM/COO</h3>
+                    <p>20-30 hours/month. I own specific outcomes. Attend key meetings, drive execution, scale your operations.</p>
+                    <div class="price">$10,000 - $15,000/month</div>
+                </div>
+                <div class="service-card">
+                    <h3>🔧 Custom Engagement</h3>
+                    <p>Got a unique challenge? Let's scope it together. Financial analysis, market research, operational turnarounds.</p>
+                    <div class="price">Let's talk</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results" id="results">
+        <div class="container">
+            <h2>Real Results</h2>
+            <div class="results-grid">
+                <div class="result-stat">
+                    <div class="number">70%</div>
+                    <div class="label">Faster roadmap decisions</div>
+                </div>
+                <div class="result-stat">
+                    <div class="number">40%</div>
+                    <div class="label">Reduction in feature bloat</div>
+                </div>
+                <div class="result-stat">
+                    <div class="number">30%</div>
+                    <div class="label">Burn rate reduction (no layoffs)</div>
+                </div>
+                <div class="result-stat">
+                    <div class="number">15+</div>
+                    <div class="label">Years of experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Smitha</h2>
+            <div class="about-content">
+                <p>I've spent 15 years helping tech companies scale operations without losing their minds. From pre-seed chaos to Series C complexity, I've seen it all.</p>
+                <p>I specialize in taking messy, fast-growing companies and giving them the systems they need to scale — without the corporate bloat.</p>
+                <p><strong>My approach:</strong> Practical systems that your team will actually use. No buzzwords. No 50-page decks that sit in Google Drive. Just clarity, momentum, and results.</p>
+                
+                <div class="credentials">
+                    <div class="credential">
+                        <div class="icon">💼</div>
+                        <div class="text">Project Management</div>
+                    </div>
+                    <div class="credential">
+                        <div class="icon">📦</div>
+                        <div class="text">Product Strategy</div>
+                    </div>
+                    <div class="credential">
+                        <div class="icon">📊</div>
+                        <div class="text">Data Analysis</div>
+                    </div>
+                    <div class="credential">
+                        <div class="icon">💰</div>
+                        <div class="text">Financial Modeling</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Scale Smarter?</h2>
+            <p>Book a free 30-minute discovery call. No pitch, just ideas.</p>
+            <a href="mailto:info@stratflow-ai.com?subject=Discovery%20Call%20Request" class="cta-button">Let's Talk</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Stratflow-ai | Seattle, WA</p>
+            <p><a href="mailto:info@stratflow-ai.com">info@stratflow-ai.com</a> | <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a></p>
+        </div>
+    </footer>
+</body>
+</html>
