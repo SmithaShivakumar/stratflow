@@ -1,460 +1,948 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stratflow-ai | Strategic Operations Consulting for Scaling Tech Companies</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: white;
-            border-bottom: 1px solid #e5e5e5;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2563eb;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #2563eb;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        /* Problem Section */
-        .problem {
-            padding: 80px 0;
-            background: #f9fafb;
-        }
-        
-        .problem h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: #1a1a1a;
-        }
-        
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .problem-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .problem-card h3 {
-            color: #dc2626;
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-        }
-        
-        .services h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
-        
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            border: 2px solid #e5e5e5;
-            padding: 40px 30px;
-            border-radius: 12px;
-            transition: border-color 0.3s, transform 0.3s;
-        }
-        
-        .service-card:hover {
-            border-color: #2563eb;
-            transform: translateY(-5px);
-        }
-        
-        .service-card h3 {
-            color: #2563eb;
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-        
-        .service-card .price {
-            font-size: 18px;
-            font-weight: 600;
-            color: #059669;
-            margin-top: 20px;
-        }
-        
-        /* Results Section */
-        .results {
-            background: #1e293b;
-            color: white;
-            padding: 80px 0;
-        }
-        
-        .results h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-        
-        .result-stat {
-            padding: 30px;
-        }
-        
-        .result-stat .number {
-            font-size: 48px;
-            font-weight: 800;
-            color: #60a5fa;
-            margin-bottom: 10px;
-        }
-        
-        .result-stat .label {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: #f9fafb;
-        }
-        
-        .about h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 30px;
-        }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about-content p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #4b5563;
-        }
-        
-        .credentials {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .credential {
-            text-align: center;
-        }
-        
-        .credential .icon {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-        
-        .credential .text {
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-        
-        /* CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .final-cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .final-cta p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        footer a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            nav ul {
-                gap: 15px;
-                font-size: 14px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Smitha Shivakumar — StratFlow AI · BridgeYield · FraudGoblin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#08101C;--bg2:#0D1928;--bg3:#132336;--bg4:#192D42;
+  --sf:#1A6FF0;--sf2:#0D4DB3;--sf-p:rgba(26,111,240,.1);
+  --by:#E8A020;--by2:#B57A10;--by-p:rgba(232,160,32,.1);
+  --fg:#FF5C5C;--fg2:#CC3A3A;--fg-p:rgba(255,92,92,.1);
+  --mint:#4ECDC4;--mp:rgba(78,205,196,.1);
+  --w:#fff;--w9:rgba(255,255,255,.9);--w7:rgba(255,255,255,.7);
+  --w5:rgba(255,255,255,.5);--w3:rgba(255,255,255,.3);--w1:rgba(255,255,255,.08);--w05:rgba(255,255,255,.04);
+  --bd:rgba(255,255,255,.1);--bd2:rgba(255,255,255,.06);
+  --r:10px;--r2:16px;--r3:24px;
+  --ds:"Space Grotesk",sans-serif;--ser:"DM Serif Display",serif;--bdf:"Inter",sans-serif
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--bdf);background:var(--bg);color:var(--w9);line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{border:none;background:none;cursor:pointer;font-family:inherit}
+.nav{position:sticky;top:0;z-index:200;background:rgba(8,16,28,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.lm{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--sf),var(--mint));display:flex;align-items:center;justify-content:center;font-family:var(--ds);font-weight:800;font-size:16px;color:#fff;flex-shrink:0}
+.ln{font-family:var(--ds);font-size:13px;font-weight:700;color:var(--w9);letter-spacing:-.3px}
+.ln span{color:var(--w5);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nl{padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;font-family:var(--ds);color:var(--w5);transition:color .15s,background .15s;cursor:pointer;border:1px solid transparent}
+.nl:hover{color:var(--w);background:var(--w05)}
+.nl.asf{color:var(--sf);background:var(--sf-p);border-color:rgba(26,111,240,.2)}
+.nl.aby{color:var(--by);background:var(--by-p);border-color:rgba(232,160,32,.2)}
+.nl.afg{color:var(--fg);background:var(--fg-p);border-color:rgba(255,92,92,.2)}
+.ncta{background:var(--sf);color:#fff;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;font-family:var(--ds);cursor:pointer;transition:background .15s,transform .15s;border:none}
+.ncta:hover{background:var(--sf2);transform:translateY(-1px)}
+.ham{display:none;color:var(--w7);font-size:22px;cursor:pointer;padding:4px}
+.mm{display:none;position:fixed;inset:0;z-index:190;background:var(--bg2);padding:80px 24px 32px;flex-direction:column;gap:8px}
+.mm.open{display:flex}
+.mml{font-family:var(--ds);font-size:20px;font-weight:700;color:var(--w7);padding:12px 0;border-bottom:1px solid var(--bd);cursor:pointer}
+.page{display:none;min-height:calc(100vh - 60px)}.page.active{display:block}
+.ps{padding:80px 32px;max-width:1060px;margin:0 auto}
+.psa{background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+@media(max-width:720px){.ps{padding:56px 20px}}
+.ey{font-family:var(--ds);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px}
+.ey.sf{color:var(--sf)}.ey.by{color:var(--by)}.ey.fg{color:var(--fg)}.ey.mint{color:var(--mint)}
+.dh{font-family:var(--ser);font-size:clamp(32px,5vw,58px);line-height:1.06;color:var(--w);margin-bottom:18px}
+.dh em{font-style:italic}.dh.sf em{color:var(--sf)}.dh.by em{color:var(--by)}.dh.fg em{color:var(--fg)}
+.sh{font-family:var(--ds);font-size:clamp(20px,3vw,30px);font-weight:700;letter-spacing:-.7px;color:var(--w);margin-bottom:12px;line-height:1.2}
+.sb{font-size:16px;color:var(--w7);line-height:1.75;max-width:600px}
+p.pr{font-size:15px;color:var(--w7);line-height:1.8;margin-bottom:12px}
+p.pr strong{color:var(--w);font-weight:600}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:40px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:40px}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:36px}
+.cd{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:22px;transition:border-color .2s,transform .2s}
+.cd:hover{border-color:var(--w3);transform:translateY(-2px)}
+.cd-em{font-size:26px;margin-bottom:10px;display:block}
+.cd-t{font-family:var(--ds);font-size:15px;font-weight:700;color:var(--w);margin-bottom:6px}
+.cd-b{font-size:13px;color:var(--w5);line-height:1.65}
+.cx{border-radius:var(--r);padding:18px 20px;margin:18px 0;border:1px solid}
+.cx-sf{background:var(--sf-p);border-color:rgba(26,111,240,.25)}
+.cx-by{background:var(--by-p);border-color:rgba(232,160,32,.25)}
+.cx-fg{background:var(--fg-p);border-color:rgba(255,92,92,.25)}
+.cx-m{background:var(--mp);border-color:rgba(78,205,196,.25)}
+.cx-lb{font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:7px}
+.cx-sf .cx-lb{color:var(--sf)}.cx-by .cx-lb{color:var(--by)}.cx-fg .cx-lb{color:var(--fg)}.cx-m .cx-lb{color:var(--mint)}
+.tw{border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;margin-top:20px}
+table{width:100%;border-collapse:collapse}
+thead th{font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.35);text-align:left;padding:10px 16px;border-bottom:1px solid var(--bd);background:var(--bg3)}
+tbody td{padding:10px 16px;font-size:13px;border-bottom:1px solid var(--bd2);color:var(--w7);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--w05)}
+td:first-child{color:var(--w9);font-weight:600}
+.bt{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:100px;font-size:14px;font-weight:700;font-family:var(--ds);cursor:pointer;transition:all .15s;border:none;text-decoration:none}
+.btsf{background:var(--sf);color:#fff}.btsf:hover{background:var(--sf2);transform:translateY(-1px)}
+.btby{background:var(--by);color:var(--bg)}.btby:hover{background:var(--by2);transform:translateY(-1px)}
+.btfg{background:var(--fg);color:#fff}.btfg:hover{background:var(--fg2);transform:translateY(-1px)}
+.btgh{background:transparent;color:var(--w7);border:1px solid var(--bd)}.btgh:hover{border-color:var(--w5);color:var(--w)}
+.btgs{color:var(--sf);border:1px solid rgba(26,111,240,.3)}.btgs:hover{background:var(--sf-p)}
+.btgb{color:var(--by);border:1px solid rgba(232,160,32,.3)}.btgb:hover{background:var(--by-p)}
+.btgf{color:var(--fg);border:1px solid rgba(255,92,92,.3)}.btgf:hover{background:var(--fg-p)}
+.hero{padding:80px 32px 60px;max-width:1060px;margin:0 auto}
+.hb{display:inline-flex;align-items:center;gap:8px;background:var(--w05);border:1px solid var(--bd);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;font-family:var(--ds);color:var(--w5);margin-bottom:24px}
+.hb .bd{width:6px;height:6px;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.ha{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.hst{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.sc{background:var(--w05);border:1px solid var(--bd);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:8px}
+.sc-d{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.h2col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 32px 60px;max-width:1060px;margin:0 auto}
+@media(max-width:800px){.h2col{grid-template-columns:1fr;padding:56px 20px 40px;gap:36px}}
+.avh{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:32px}
+.avhc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:22px;position:relative;overflow:hidden}
+.avhc::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--sf);border-radius:2px 0 0 2px}
+.avh-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.avh-t{font-family:var(--ds);font-size:15px;font-weight:700;color:var(--w)}
+.avh-cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.avh-col{padding:10px 12px;border-radius:8px}
+.aicol{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.hucol{background:rgba(26,111,240,.07);border:1px solid rgba(26,111,240,.15)}
+.avh-cl{font-family:var(--ds);font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px}
+.aicol .avh-cl{color:rgba(255,255,255,.45)}.hucol .avh-cl{color:var(--sf)}
+.avh-ct{font-size:12px;color:var(--w5);line-height:1.5}
+@media(max-width:480px){.avh-cmp{grid-template-columns:1fr}}
+.svc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:24px;transition:border-color .2s,transform .2s}
+.svc:hover{border-color:rgba(26,111,240,.4);transform:translateY(-2px)}
+.svc-ic{font-size:26px;margin-bottom:10px;display:block}
+.svc-n{font-family:var(--ds);font-size:16px;font-weight:700;color:var(--w);margin-bottom:5px}
+.svc-p{font-family:var(--ds);font-size:12px;font-weight:600;color:var(--sf);margin-bottom:10px;display:block}
+.svc-b{font-size:13px;color:var(--w5);line-height:1.65}
+.abg{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start;margin-top:36px}
+@media(max-width:720px){.abg{grid-template-columns:1fr}}
+.av{background:linear-gradient(135deg,var(--sf),var(--mint));border-radius:24px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:64px;color:#fff;font-style:italic;user-select:none}
+.sk{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.st{background:var(--w05);border:1px solid var(--bd);border-radius:8px;padding:7px 14px;font-size:13px;font-weight:500;color:var(--w7)}
+.cb{padding:80px 32px;text-align:center}
+.cbsf{background:linear-gradient(135deg,rgba(26,111,240,.14),rgba(26,111,240,.04))}
+.cbby{background:linear-gradient(135deg,rgba(232,160,32,.12),rgba(232,160,32,.04))}
+.cbfg{background:linear-gradient(135deg,rgba(255,92,92,.12),rgba(78,205,196,.08))}
+.cbi{max-width:560px;margin:0 auto}
+.cbh{font-family:var(--ser);font-size:clamp(24px,4vw,38px);color:var(--w);margin-bottom:14px;line-height:1.1}
+.cbs{font-size:16px;color:var(--w5);margin-bottom:26px;line-height:1.7}
+.cba{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+/* BRIDGEYIELD NEW STYLES */
+.by-exp{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:24px;position:relative;overflow:hidden;transition:border-color .2s}
+.by-exp:hover{border-color:rgba(232,160,32,.35)}
+.exp-status{display:inline-flex;align-items:center;gap:6px;font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:14px;border:1px solid}
+.exp-past{background:rgba(255,255,255,.06);color:var(--w5);border-color:var(--bd)}
+.exp-current{background:rgba(232,160,32,.15);color:var(--by);border-color:rgba(232,160,32,.35)}
+.exp-n{font-family:var(--ds);font-size:17px;font-weight:700;color:var(--w);margin-bottom:8px;line-height:1.25}
+.exp-b{font-size:13px;color:var(--w5);line-height:1.7;margin-bottom:14px}
+.exp-insight{background:var(--bg2);border-radius:var(--r);padding:12px 14px;border-left:3px solid var(--by);margin-top:10px}
+.exp-il{font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--by);margin-bottom:4px}
+.exp-it{font-size:13px;color:var(--w7);line-height:1.6}
+.exp-current-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--by),var(--mint))}
+/* FORUM THREADS */
+.thread{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.thread:hover{border-color:rgba(232,160,32,.3)}
+.th{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;cursor:pointer;user-select:none}
+.tv{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.tvb{width:32px;height:32px;border-radius:8px;background:var(--w05);border:1px solid var(--bd);color:var(--w5);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s}
+.tvb:hover,.tvb.voted{background:var(--by-p);border-color:rgba(232,160,32,.4);color:var(--by)}
+.tvc{font-family:var(--ds);font-size:13px;font-weight:700;color:var(--w7)}
+.ti{flex:1;min-width:0}
+.tt{font-family:var(--ds);font-size:15px;font-weight:700;color:var(--w);margin-bottom:5px;line-height:1.3}
+.te{font-size:13px;color:var(--w5);line-height:1.6;margin-bottom:8px}
+.tm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ftg{font-size:11px;font-weight:600;font-family:var(--ds);padding:3px 9px;border-radius:100px;background:var(--by-p);color:var(--by);border:1px solid rgba(232,160,32,.25)}
+.fau{font-size:12px;color:rgba(255,255,255,.35)}
+.chev{color:var(--w3);font-size:12px;flex-shrink:0;margin-top:2px;transition:transform .2s;font-family:var(--ds)}
+.chev.open{transform:rotate(180deg)}
+.tbody{border-top:1px solid var(--bd);display:none}
+.tbody.open{display:block}
+.tbody-inner{padding:20px 20px 20px 66px}
+@media(max-width:600px){.tbody-inner{padding:16px}}
+.tbody-h{font-family:var(--ds);font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--w5);margin-bottom:10px}
+.tbody p{font-size:14px;color:var(--w7);line-height:1.75;margin-bottom:12px}
+.tbody ul{font-size:14px;color:var(--w7);line-height:1.75;margin-bottom:12px;padding-left:20px}
+.tbody li{margin-bottom:6px}
+.tbody strong{color:var(--w);font-weight:600}
+.tbody-act{margin-top:16px;padding-top:14px;border-top:1px solid var(--bd2);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.tbody-act-lbl{font-size:13px;color:var(--w5)}
+/* FRAUDGOBLIN PROBLEM */
+.prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:28px}
+.prob-c{background:var(--bg3);border:1px solid rgba(255,92,92,.2);border-radius:var(--r2);padding:22px;position:relative;overflow:hidden}
+.prob-c::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--fg),transparent)}
+.prob-n{font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--fg);margin-bottom:10px}
+.prob-t{font-family:var(--ds);font-size:16px;font-weight:700;color:var(--w);margin-bottom:8px}
+.prob-b{font-size:13px;color:var(--w5);line-height:1.7}
+.prob-b strong{color:var(--w9);font-weight:600}
+.solution-bridge{background:linear-gradient(135deg,rgba(78,205,196,.1),rgba(78,205,196,.04));border:1px solid rgba(78,205,196,.2);border-radius:var(--r2);padding:22px;margin-top:20px;text-align:center}
+/* SINGLE CUSTOMER CANVAS */
+.cust-wrap{background:var(--bg3);border:1px solid rgba(255,92,92,.3);border-radius:var(--r2);overflow:hidden;margin-top:28px}
+.cust-header{background:linear-gradient(135deg,rgba(255,92,92,.12),rgba(255,92,92,.04));padding:24px 28px;border-bottom:1px solid rgba(255,92,92,.2)}
+.cust-persona{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.cust-avatar{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--fg),var(--fg2));display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.cust-name{font-family:var(--ds);font-size:18px;font-weight:800;color:var(--w);letter-spacing:-.4px}
+.cust-role{font-size:13px;color:var(--w5);margin-top:2px}
+.cust-stats-row{display:flex;gap:20px;flex-wrap:wrap}
+.cust-stat{background:rgba(0,0,0,.2);border-radius:8px;padding:8px 14px}
+.cust-stat-v{font-family:var(--ds);font-size:16px;font-weight:800;color:var(--fg)}
+.cust-stat-l{font-size:11px;color:var(--w5);margin-top:1px}
+.cust-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:720px){.cust-body{grid-template-columns:1fr}}
+.cust-col{padding:22px 28px;border-right:1px solid var(--bd)}
+.cust-col:last-child{border-right:none}
+.cust-col-h{font-family:var(--ds);font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;margin-bottom:14px}
+.cust-col.jobs .cust-col-h{color:var(--sf)}
+.cust-col.pains .cust-col-h{color:var(--fg)}
+.cust-row{margin-bottom:12px;display:flex;gap:10px;align-items:flex-start}
+.cust-row-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.cust-row-text{font-size:13px;color:var(--w7);line-height:1.6}
+.cust-scenario{border-top:1px solid var(--bd)}
+.cust-scen-tabs{display:flex;border-bottom:1px solid var(--bd)}
+.cst{padding:12px 20px;font-family:var(--ds);font-size:12px;font-weight:700;color:var(--w5);cursor:pointer;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.cst.active{color:var(--mint);border-bottom-color:var(--mint)}
+.csp{display:none;padding:22px 28px}
+.csp.active{display:block}
+.scenario-step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.ss-n{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--ds);font-size:11px;font-weight:800;flex-shrink:0;margin-top:1px}
+.ss-n.bad{background:rgba(255,92,92,.2);color:var(--fg)}
+.ss-n.good{background:rgba(78,205,196,.2);color:var(--mint)}
+.ss-t{font-size:13.5px;color:var(--w7);line-height:1.65}
+.ss-t strong{color:var(--w);font-weight:600}
+.cust-roi{background:linear-gradient(135deg,rgba(78,205,196,.1),rgba(78,205,196,.04));border-top:1px solid rgba(78,205,196,.2);padding:20px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.roi-item{text-align:center}
+.roi-v{font-family:var(--ds);font-size:22px;font-weight:800;color:var(--mint);letter-spacing:-.5px}
+.roi-l{font-size:12px;color:var(--w5);margin-top:3px}
+/* FG FLOW */
+.flow{display:flex;flex-wrap:wrap;border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;margin-top:28px}
+.fs{flex:1;min-width:130px;padding:18px 14px;text-align:center;border-right:1px solid var(--bd);transition:background .2s}
+.fs:last-child{border-right:none}
+.fs:hover{background:var(--w05)}
+.fem{font-size:24px;margin-bottom:6px;display:block}
+.fn{font-family:var(--ds);font-size:12px;font-weight:700;color:var(--w);margin-bottom:3px}
+.fms{font-family:var(--ds);font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px;display:inline-block;margin-bottom:5px}
+.fd{font-size:11px;color:var(--w5);line-height:1.5}
+/* TAM */
+.tamw{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:36px;flex-wrap:wrap}
+.tamc{border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;flex-shrink:0}
+.tc1{width:210px;height:210px;background:rgba(255,92,92,.12);border:2px solid rgba(255,92,92,.3)}
+.tc2{width:162px;height:162px;background:rgba(255,217,61,.1);border:2px solid rgba(255,217,61,.3)}
+.tc3{width:114px;height:114px;background:rgba(78,205,196,.15);border:2px solid rgba(78,205,196,.4)}
+.tam-lb{font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
+.tam-v{font-family:var(--ds);font-size:20px;font-weight:800;letter-spacing:-.5px;line-height:1}
+.tam-d{font-size:10px;color:var(--w5);margin-top:3px}
+.tam-leg{margin-top:20px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.tli{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--w5)}
+.tld{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+/* MOAT */
+.mc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:20px;position:relative;overflow:hidden;transition:border-color .2s}
+.mc:hover{border-color:rgba(78,205,196,.35)}
+.mc::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--mint)}
+.mn{font-family:var(--ds);font-size:34px;font-weight:800;color:var(--mint);opacity:.25;line-height:1;margin-bottom:7px}
+.mt2{font-family:var(--ds);font-size:14px;font-weight:700;color:var(--w);margin-bottom:5px}
+.mb{font-size:13px;color:var(--w5);line-height:1.65}
+/* BMC */
+.bmc{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;margin-top:24px}
+.bmc-c{background:var(--bg3);padding:13px;font-size:11.5px;color:var(--w5);line-height:1.5}
+.bmc-l{font-family:var(--ds);font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:5px}
+.bmc-c strong{color:var(--w);display:block;margin-bottom:2px;font-size:12px}
+.bfg{border-top:2px solid var(--fg)}.bmi{border-top:2px solid var(--mint)}.byy{border-top:2px solid var(--by)}
+.sp2{grid-column:span 2}.sp3{grid-column:span 3}
+@media(max-width:720px){.bmc{grid-template-columns:1fr 1fr}.bmc-c.sp2,.bmc-c.sp3{grid-column:span 1}}
+/* FOOTER / MODAL */
+.ft2{background:var(--bg2);border-top:1px solid var(--bd);padding:36px 28px}
+.ft-in{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.ft-ls{display:flex;gap:4px;flex-wrap:wrap}
+.ft-l{font-size:13px;color:var(--w5);padding:4px 10px;border-radius:6px;cursor:pointer;transition:color .15s}
+.ft-l:hover{color:var(--w)}
+.ft-leg{font-size:12px;color:rgba(255,255,255,.28);width:100%;text-align:center;padding-top:16px;border-top:1px solid var(--bd2)}
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:24px}
+.mo.open{display:flex}
+.md{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r3);width:100%;max-width:530px;max-height:90vh;overflow-y:auto;padding:34px;position:relative}
+.mdc{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--w1);border:1px solid var(--bd);color:var(--w5);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;font-family:var(--ds)}
+.mdc:hover{background:var(--w);color:var(--bg);border-color:transparent}
+.mdh{font-family:var(--ds);font-size:21px;font-weight:800;color:var(--w);margin-bottom:3px;letter-spacing:-.4px}
+.mds{font-size:14px;color:var(--w5);margin-bottom:26px}
+.fg2{margin-bottom:16px}
+.fl{font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--w5);margin-bottom:6px;display:block}
+.fi,.fta,.fse{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:12px 16px;font-size:14px;color:var(--w9);font-family:var(--bdf);transition:border-color .15s;outline:none}
+.fi:focus,.fta:focus,.fse:focus{border-color:var(--sf)}
+.fta{min-height:96px;resize:vertical}
+.fse option{background:var(--bg3)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.fgrid{grid-template-columns:1fr}}
+.fsub{width:100%;background:var(--sf);color:#fff;padding:13px;border-radius:100px;font-size:14px;font-weight:700;font-family:var(--ds);cursor:pointer;border:none;transition:background .15s;margin-top:4px}
+.fsub:hover{background:var(--sf2)}.fsub:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:720px){.nav{padding:0 16px}.nav-links{display:none}.ham{display:flex}.hero{padding:56px 20px 44px}.cb{padding:56px 20px}.ft2{padding:28px 20px}.md{padding:22px}}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">StratFlow-ai</div>
+<nav class="nav">
+  <div class="nav-links">
+    <span class="nl" id="nsf" onclick="go('stratflow')">StratFlow AI</span>
+    <span class="nl" id="nby" onclick="go('bridgeyield')">BridgeYield</span>
+    <span class="nl" id="nfg" onclick="go('fraudgoblin')">FraudGoblin</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="ncta" onclick="om()">Connect &rarr;</button>
+    <span class="ham" onclick="tm()">&#9776;</span>
+  </div>
+</nav>
+<div class="mm" id="mm">
+  <span onclick="go('stratflow');tm()" class="mml">StratFlow AI</span>
+  <span onclick="go('bridgeyield');tm()" class="mml">BridgeYield</span>
+  <span onclick="go('fraudgoblin');tm()" class="mml">FraudGoblin</span>
+  <button class="bt btsf" style="margin-top:16px" onclick="om();tm()">Connect With Us &rarr;</button>
+</div>
+<div class="page" id="p-stratflow">
+  <div style="background:linear-gradient(180deg,rgba(26,111,240,.07),transparent 70%);border-bottom:1px solid var(--bd)">
+    <div class="h2col">
+      <div>
+        <div class="hb"><span class="bd" style="background:var(--sf)"></span> Strategic Operations Consulting</div>
+        <h1 class="dh sf">Scale Without <em>the Chaos</em></h1>
+        <p class="sb">Strategic operations consulting for tech companies who&rsquo;ve raised capital and need systems that actually work. PM &middot; Product &middot; Data &middot; Finance.</p>
+        <div class="ha">
+          <button class="bt btsf" onclick="om('StratFlow Consulting')">Book a discovery call &rarr;</button>
+          <a href="#sf-svc" class="bt btgh">See services</a>
+        </div>
+        <div class="hst">
+          <div class="sc"><span class="sc-d" style="background:var(--sf)"></span> 15+ years experience</div>
+          <div class="sc"><span class="sc-d" style="background:var(--mint)"></span> Pre-seed to Series C</div>
+          <div class="sc"><span class="sc-d" style="background:var(--by)"></span> Seattle, WA</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="cd" style="border-top:2px solid var(--sf)"><div style="font-family:var(--ds);font-size:34px;font-weight:800;color:var(--sf)">70%</div><div style="font-size:13px;color:var(--w5);margin-top:4px">Faster roadmap decisions</div></div>
+        <div class="cd" style="border-top:2px solid var(--mint)"><div style="font-family:var(--ds);font-size:34px;font-weight:800;color:var(--mint)">40%</div><div style="font-size:13px;color:var(--w5);margin-top:4px">Reduction in feature bloat</div></div>
+        <div class="cd" style="border-top:2px solid var(--by)"><div style="font-family:var(--ds);font-size:34px;font-weight:800;color:var(--by)">30%</div><div style="font-size:13px;color:var(--w5);margin-top:4px">Burn rate reduction</div></div>
+        <div class="cd" style="border-top:2px solid rgba(255,255,255,.3)"><div style="font-family:var(--ds);font-size:34px;font-weight:800;color:var(--w)">15+</div><div style="font-size:13px;color:var(--w5);margin-top:4px">Years of experience</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consultant intro strip -->
+  <div style="border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2)">
+    <div style="max-width:1060px;margin:0 auto;padding:32px 32px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+      <div style="width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,var(--sf),var(--mint));display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:30px;color:#fff;font-style:italic;flex-shrink:0;user-select:none">S</div>
+      <div style="flex:1;min-width:220px">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:5px">
+          <span style="font-family:var(--ds);font-size:18px;font-weight:800;color:var(--w);letter-spacing:-.4px">Smitha Shivakumar</span>
+          <span style="font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--sf);background:var(--sf-p);border:1px solid rgba(26,111,240,.25);padding:3px 9px;border-radius:100px">Principal Consultant</span>
+          <span style="font-family:var(--ds);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mint);background:var(--mp);border:1px solid rgba(78,205,196,.25);padding:3px 9px;border-radius:100px;display:flex;align-items:center;gap:5px"><span style="width:5px;height:5px;border-radius:50%;background:var(--mint);display:inline-block"></span>Taking new engagements</span>
+        </div>
+        <p style="font-size:14px;color:var(--w7);line-height:1.7;margin-bottom:10px">StratFlow AI is Smitha&rsquo;s hands-on consulting practice. Every engagement is led directly by Smitha &mdash; not delegated to a junior team. She brings 15+ years of experience scaling tech companies from pre-seed through Series C, with deep expertise in product strategy, operations, data infrastructure, and financial modeling.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:12px;color:var(--w5);background:var(--w05);border:1px solid var(--bd);border-radius:6px;padding:4px 10px">&#x1F4BC; Product Strategy</span>
+          <span style="font-size:12px;color:var(--w5);background:var(--w05);border:1px solid var(--bd);border-radius:6px;padding:4px 10px">&#x26A1; Operations</span>
+          <span style="font-size:12px;color:var(--w5);background:var(--w05);border:1px solid var(--bd);border-radius:6px;padding:4px 10px">&#x1F4CA; Data Infrastructure</span>
+          <span style="font-size:12px;color:var(--w5);background:var(--w05);border:1px solid var(--bd);border-radius:6px;padding:4px 10px">&#x1F4B0; Financial Modeling</span>
+          <span style="font-size:12px;color:var(--w5);background:var(--w05);border:1px solid var(--bd);border-radius:6px;padding:4px 10px">&#x1F30D; Seattle, WA &middot; Remote-friendly</span>
+        </div>
+      </div>
+      <button class="bt btsf" style="flex-shrink:0" onclick="om('StratFlow Consulting')">Work with Smitha &rarr;</button>
+    </div>
+  </div>
+  <div class="psa"><div class="ps">
+    <div class="ey sf">Sound familiar?</div><h2 class="sh">You&rsquo;ve hit a growth ceiling</h2>
+    <div class="g4">
+      <div class="cd"><span class="cd-em">&#x1F6A7;</span><div class="cd-t">Roadmap paralysis</div><div class="cd-b">Too many priorities, everything&rsquo;s urgent. Your team doesn&rsquo;t know what to build next.</div></div>
+      <div class="cd"><span class="cd-em">&#x1F573;</span><div class="cd-t">Data blindspots</div><div class="cd-b">Making million-dollar decisions with spreadsheets and gut feel.</div></div>
+      <div class="cd"><span class="cd-em">&#x1F300;</span><div class="cd-t">Cross-functional chaos</div><div class="cd-b">Engineering, product, and sales speaking different languages. Nothing ships on time.</div></div>
+      <div class="cd"><span class="cd-em">&#x1F4C9;</span><div class="cd-t">Velocity slowdown</div><div class="cd-b">You&rsquo;re hiring but shipping less. Coordination is eating your team&rsquo;s productivity.</div></div>
+    </div>
+  </div></div>
+  <div class="ps">
+    <div class="ey sf">The StratFlow difference</div><h2 class="sh">Where StratFlow goes beyond the tool</h2>
+    <p class="sb">Tools accelerate information work. But the hardest problems in scaling companies aren&rsquo;t information problems &mdash; they&rsquo;re human ones. Here&rsquo;s where experience and presence make the difference.</p>
+    <div class="cx cx-sf" style="margin-top:20px"><div class="cx-lb">The core truth</div><p style="font-size:14px;color:var(--w9);line-height:1.7">An AI can generate a roadmap. It cannot walk into your board meeting and tell your lead investor that the roadmap was wrong. That takes judgment, relationship capital, and the willingness to own a hard conversation.</p></div>
+    <div class="avh">
+      <div class="avhc"><div class="avh-h"><span style="font-size:22px">&#x1F3AD;</span><div class="avh-t">Stakeholder navigation</div></div><div style="font-size:13px;color:var(--w5);margin-bottom:10px">Reading room dynamics, managing founder-board tension, knowing when to push back &mdash; in real time.</div><div class="avh-cmp"><div class="avh-col aicol"><div class="avh-cl">Tools alone</div><div class="avh-ct">Generates stakeholder maps and communication templates</div></div><div class="avh-col hucol"><div class="avh-cl">StratFlow embedded</div><div class="avh-ct">Sits in the room and navigates the politics in the moment</div></div></div></div>
+      <div class="avhc"><div class="avh-h"><span style="font-size:22px">&#x1F504;</span><div class="avh-t">Organizational change</div></div><div style="font-size:13px;color:var(--w5);margin-bottom:10px">Bringing teams through transformation without breaking the culture or losing your best people.</div><div class="avh-cmp"><div class="avh-col aicol"><div class="avh-cl">Tools alone</div><div class="avh-ct">Produces change management frameworks and decks</div></div><div class="avh-col hucol"><div class="avh-cl">StratFlow embedded</div><div class="avh-ct">Runs the change, manages the resistance, carries people through it</div></div></div></div>
+      <div class="avhc"><div class="avh-h"><span style="font-size:22px">&#x2696;&#xFE0F;</span><div class="avh-t">Judgment under ambiguity</div></div><div style="font-size:13px;color:var(--w5);margin-bottom:10px">Making the right call when data is incomplete, contradictory, and politically charged.</div><div class="avh-cmp"><div class="avh-col aicol"><div class="avh-cl">Tools alone</div><div class="avh-ct">Optimizes for the most likely outcome based on training data</div></div><div class="avh-col hucol"><div class="avh-cl">StratFlow embedded</div><div class="avh-ct">Weighs the human factors that don&rsquo;t appear in any dataset</div></div></div></div>
+      <div class="avhc"><div class="avh-h"><span style="font-size:22px">&#x1F91D;</span><div class="avh-t">Trust built over time</div></div><div style="font-size:13px;color:var(--w5);margin-bottom:10px">The relationship capital to have hard conversations &mdash; and be heard.</div><div class="avh-cmp"><div class="avh-col aicol"><div class="avh-cl">Tools alone</div><div class="avh-ct">Provides feedback instantly, without relationship context</div></div><div class="avh-col hucol"><div class="avh-cl">StratFlow embedded</div><div class="avh-ct">Earns the right to give honest feedback through consistent results</div></div></div></div>
+      <div class="avhc"><div class="avh-h"><span style="font-size:22px">&#x26A1;</span><div class="avh-t">Cross-functional alignment</div></div><div style="font-size:13px;color:var(--w5);margin-bottom:10px">Making engineering, product, and sales genuinely pull in the same direction &mdash; not just agree in meetings.</div><div class="avh-cmp"><div class="avh-col aicol"><div class="avh-cl">Tools alone</div><div class="avh-ct">Suggests alignment processes and RACI matrices</div></div><div class="avh-col hucol"><div class="avh-cl">StratFlow embedded</div><div class="avh-ct">Facilitates the conversations that unlock real collaboration</div></div></div></div>
+      <div class="avhc"><div class="avh-h"><span style="font-size:22px">&#x1F3AF;</span><div class="avh-t">Accountability partnership</div></div><div style="font-size:13px;color:var(--w5);margin-bottom:10px">Holding founders to commitments with presence and authority that makes accountability real.</div><div class="avh-cmp"><div class="avh-col aicol"><div class="avh-cl">Tools alone</div><div class="avh-ct">Tracks tasks and sends reminders</div></div><div class="avh-col hucol"><div class="avh-cl">StratFlow embedded</div><div class="avh-ct">Sits in the room when you missed the goal and asks why</div></div></div></div>
+    </div>
+  </div>
+  <div id="sf-svc" class="psa"><div class="ps">
+    <div class="ey sf">Engagements</div><h2 class="sh">How I help</h2>
+    <div class="g3">
+      <div class="svc"><span class="svc-ic">&#x1F3AF;</span><div class="svc-n">Process Audit</div><span class="svc-p">Starting at $8,000</span><div class="svc-b">2-week deep dive: team interviews, workflow audit, and a prioritized action plan with clear next steps.</div></div>
+      <div class="svc"><span class="svc-ic">&#x1F680;</span><div class="svc-n">PM Framework Build</div><span class="svc-p">$15,000 &ndash; $35,000</span><div class="svc-b">Scalable product management processes from scratch. Roadmap prioritization, sprint planning, and alignment that sticks.</div></div>
+      <div class="svc"><span class="svc-ic">&#x1F4CA;</span><div class="svc-n">Data Infrastructure</div><span class="svc-p">$12,000 &ndash; $25,000</span><div class="svc-b">Real-time dashboards your team will actually use. Financial models, KPI tracking, and automated reporting.</div></div>
+      <div class="svc"><span class="svc-ic">&#x26A1;</span><div class="svc-n">Strategic Retainer</div><span class="svc-p">$5,000 &ndash; $8,000 / mo</span><div class="svc-b">Ongoing advisory embedded in your team. 10&ndash;15 hours/month, Slack access, bi-weekly strategy calls.</div></div>
+      <div class="svc"><span class="svc-ic">&#x1F4BC;</span><div class="svc-n">Fractional PM / COO</div><span class="svc-p">$10,000 &ndash; $15,000 / mo</span><div class="svc-b">20&ndash;30 hours/month. I own specific outcomes. Drive execution without permanent headcount.</div></div>
+      <div class="svc" style="background:linear-gradient(135deg,rgba(26,111,240,.1),rgba(26,111,240,.04));border-color:rgba(26,111,240,.3)"><span class="svc-ic">&#x1F527;</span><div class="svc-n">Custom Engagement</div><span class="svc-p" style="color:var(--by)">Let&rsquo;s scope it</span><div class="svc-b">Unique challenge? Financial analysis, market research, operational turnarounds. High stakes welcome.</div><button class="bt btgs" style="margin-top:14px;font-size:12px;padding:8px 16px" onclick="om('StratFlow Consulting')">Get in touch &rarr;</button></div>
+    </div>
+  </div></div>
+  <div class="ps">
+    <div class="ey sf">About</div><h2 class="sh">About Smitha</h2>
+    <div class="abg">
+      <div><div class="av">S</div><div class="sk"><span class="st">&#x1F4BC; Project Management</span><span class="st">&#x1F4E6; Product Strategy</span><span class="st">&#x1F4CA; Data Analysis</span><span class="st">&#x1F4B0; Financial Modeling</span></div></div>
+      <div>
+        <p class="pr">I&rsquo;ve spent <strong>15 years helping tech companies scale operations</strong> without losing their minds. From pre-seed chaos to Series C complexity, I&rsquo;ve seen every failure mode &mdash; and built the systems to avoid them.</p>
+        <p class="pr">I specialize in taking messy, fast-growing companies and giving them the clarity they need to scale &mdash; without the corporate bloat. My work spans product strategy, operational systems, data infrastructure, and financial modeling.</p>
+        <p class="pr"><strong>My approach:</strong> Practical systems your team will actually use. No buzzwords. No 50-page decks that sit in Google Drive. Just clarity, momentum, and results.</p>
+        <div class="cx cx-sf" style="margin-top:18px"><div class="cx-lb">Beyond StratFlow</div><p style="font-size:13.5px;color:var(--w9);line-height:1.7">I also run <strong>BridgeYield</strong>, a product experimentation and innovation studio at the intersection of FinTech, AI, and democratized finance, and I&rsquo;m building <strong>FraudGoblin</strong>, an AI fraud detection platform for the telco&ndash;finance gap.</p></div>
+        <div style="margin-top:18px"><button class="bt btsf" onclick="om('StratFlow Consulting')">Book a free discovery call &rarr;</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="cb cbsf"><div class="cbi"><h2 class="cbh">Ready to scale smarter?</h2><p class="cbs">Book a free 30-minute discovery call. No pitch. No deck. Just a real conversation about your biggest operational challenge.</p><div class="cba"><button class="bt btsf" onclick="om('StratFlow Consulting')">Let&rsquo;s talk &rarr;</button><button class="bt btgh" onclick="go('bridgeyield')">See BridgeYield</button></div></div></div>
+</div>
+<div class="page" id="p-bridgeyield">
+  <!-- Hero -->
+  <div style="background:linear-gradient(180deg,rgba(232,160,32,.07),transparent 70%);border-bottom:1px solid var(--bd)">
+    <div class="hero">
+      <div class="hb"><span class="bd" style="background:var(--by)"></span> Product Experimentation Studio</div>
+      <h1 class="dh by" style="max-width:680px">Bold ideas validated at the intersection of <em>FinTech, AI, and democratized finance</em></h1>
+      <p class="sb" style="max-width:580px">BridgeYield started with a simple belief: wealth creation tools shouldn&rsquo;t be reserved only for institutions. Each experiment is designed to test that belief in the real world.</p>
+      <div class="ha">
+        <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="bt btby">Follow on LinkedIn &rarr;</a>
+        <button class="bt btgh" onclick="om('BridgeYield Community')">Work with us</button>
+      </div>
+      <div class="hst">
+        <div class="sc"><span class="sc-d" style="background:var(--by)"></span> Rapid prototyping &rarr; user feedback &rarr; pivot or kill</div>
+        <div class="sc"><span class="sc-d" style="background:var(--mint)"></span> Real-world conversations &amp; market demand</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What is BridgeYield -->
+  <div class="ps">
+    <div class="ey by">The studio</div>
+    <h2 class="sh">What BridgeYield is</h2>
+    <div class="g2" style="margin-top:24px">
+      <div>
+        <p class="pr">BridgeYield is a <strong>product experimentation and innovation studio</strong> where bold ideas are validated at the intersection of FinTech, AI, and democratized finance.</p>
+        <p class="pr">Over the past year, BridgeYield has evolved through multiple experiments &mdash; each one driven by real-world conversations, user discovery, and market demand. Some experiments confirmed a thesis. Some disproved it. All of them sharpened product intuition.</p>
+        <p class="pr">The methodology is simple: <strong>rapid prototyping &rarr; user feedback &rarr; pivot or kill.</strong> No experiment runs longer than it should. No thesis is protected from reality.</p>
+        <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="bt btgb" style="margin-top:8px">Follow BridgeYield on LinkedIn &rarr;</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-self:start">
+        <div class="cd" style="border-top:2px solid var(--by);text-align:center"><div style="font-size:26px;margin-bottom:6px">&#x1F9EA;</div><div class="cd-t">Experiment-first</div><div class="cd-b">Every idea runs through rapid prototyping before any serious build begins.</div></div>
+        <div class="cd" style="border-top:2px solid var(--mint);text-align:center"><div style="font-size:26px;margin-bottom:6px">&#x1F465;</div><div class="cd-t">User-led</div><div class="cd-b">Real-world conversations and user discovery drive every pivot decision.</div></div>
+        <div class="cd" style="border-top:2px solid var(--sf);text-align:center"><div style="font-size:26px;margin-bottom:6px">&#x1F3E6;</div><div class="cd-t">Finance for all</div><div class="cd-b">Institutional-grade products rebuilt for everyday investors and advisors.</div></div>
+        <div class="cd" style="border-top:2px solid rgba(255,255,255,.3);text-align:center"><div style="font-size:26px;margin-bottom:6px">&#x2702;&#xFE0F;</div><div class="cd-t">Pivot or kill</div><div class="cd-b">No experiment outlasts its evidence. Honest kills create better next bets.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Experiments -->
+  <div class="psa"><div class="ps">
+    <div class="ey by">Experiments</div>
+    <h2 class="sh">Product experiments</h2>
+    <p class="sb">Each experiment is designed to sharpen product intuition. The learning from each one informs the next.</p>
+    <div class="g3" style="margin-top:28px">
+
+      <div class="by-exp">
+        <div><span class="exp-status exp-past">&#x2713; Experiment 1 &middot; Completed</span></div>
+        <div class="exp-n">Democratizing Bonds via Crypto Tokenization</div>
+        <div class="exp-b">Explored fractional access to treasury and corporate bonds using blockchain tokenization. Built investor flows covering custody, KYC, fractionalization, and order routing to test whether everyday investors could access fixed income markets that institutions dominate.<br><br><strong>Vision:</strong> Give retail investors access to markets institutions have controlled for decades.</div>
+        <div class="exp-insight"><div class="exp-il">&#x1F4A1; Key insight</div><div class="exp-it">Regulatory friction in tokenized securities is real and compounding. The infrastructure is ready before the compliance rails are. This experiment confirmed the demand thesis but revealed the distribution path is harder than the technology path.</div></div>
+      </div>
+
+      <div class="by-exp">
+        <div><span class="exp-status exp-past">&#x2713; Experiment 2 &middot; Completed</span></div>
+        <div class="exp-n">MyChart for Financial Advisors &mdash; Wealth Operating System</div>
+        <div class="exp-b">Built a unified portfolio and account visibility layer modeled on the healthcare MyChart experience &mdash; one place where advisors and retail investors see everything. Tested with advisors and retail investors across account types and custodians.<br><br><strong>Vision:</strong> The healthcare industry solved fragmented records. Finance hasn&rsquo;t. MyChart for wealth.</div>
+        <div class="exp-insight"><div class="exp-il">&#x1F4A1; Key insight</div><div class="exp-it">People want simplification more than dashboards. Every advisor we tested with had too many dashboards and not enough decisions made from them. The product gap isn&rsquo;t visibility &mdash; it&rsquo;s judgment support on top of unified data.</div></div>
+      </div>
+
+      <div class="by-exp" style="border-color:rgba(232,160,32,.3)">
+        <div class="exp-current-bar"></div>
+        <div><span class="exp-status exp-current">&#x25CF; Experiment 3 &middot; Current Focus</span></div>
+        <div class="exp-n">Agent Evaluations for FinTech &mdash; Trust Infrastructure for AI in Finance</div>
+        <div class="exp-b">Building an evaluation and trust layer for AI agents used in financial workflows. Covers fairness testing, guardrails, audit readiness, and reliability scoring for automated financial decision-making.<br><br><strong>Vision:</strong> Moody&rsquo;s for AI agents &mdash; the trust infrastructure that lets automation run in regulated finance without flying blind.</div>
+        <div class="exp-insight"><div class="exp-il">&#x1F4A1; Why this is the right experiment now</div><div class="exp-it">AI agents are already processing loan applications, flagging fraud, and executing compliance reviews. No standardized evaluation layer exists. Regulators are asking questions that financial firms can&rsquo;t yet answer. This is the infrastructure gap BridgeYield is designed to fill.</div></div>
+        <div style="margin-top:16px"><button class="bt btgb" style="font-size:13px;padding:10px 20px" onclick="om('BridgeYield Community')">Interested in this problem? Talk to us &rarr;</button></div>
+      </div>
+
+    </div>
+  </div></div>
+
+  <!-- Community Discussions (hosted on this page) -->
+  <div class="ps">
+    <div class="ey by">Strategy forum</div>
+    <h2 class="sh">Discussions &mdash; live on this page</h2>
+    <p class="sb">Click any thread to read the full framework and share your perspective. These discussions are seeded by BridgeYield; join the conversation on LinkedIn or reach us directly.</p>
+
+    <div style="margin-top:28px">
+
+      <div class="thread" id="t1">
+        <div class="th" onclick="toggleThread('t1')">
+          <div class="tv"><button class="tvb voted" onclick="event.stopPropagation();vote(this)">&#9650;</button><div class="tvc">142</div></div>
+          <div class="ti">
+            <div class="tt">Pricing strategy for SaaS in 2025: Why usage-based is eating seat-based</div>
+            <div class="te">When does the operational complexity of usage-based actually pay off? A framework for making the call.</div>
+            <div class="tm"><span class="ftg">Pricing</span><span class="ftg">SaaS</span><span class="fau">Started by Smitha S.</span></div>
+          </div>
+          <div class="chev" id="chev-t1">&#9660;</div>
+        </div>
+        <div class="tbody" id="tbody-t1">
+          <div class="tbody-inner">
+            <div class="tbody-h">The framework</div>
+            <p>The Stripe and Snowflake data is consistent: companies that shift from seat-based to usage-based pricing see <strong>NRR increase 18&ndash;34%</strong> within 12 months. But the operational complexity triples. Billing becomes harder. Revenue recognition gets complicated. Customer success needs to change how they define value.</p>
+            <p>The question isn&rsquo;t whether usage-based is better &mdash; it usually is. The question is <strong>when</strong> you have enough data on customer usage patterns to price it fairly, and <strong>whether your customer success motion</strong> can shift from &ldquo;renewing seats&rdquo; to &ldquo;driving adoption.&rdquo;</p>
+            <p><strong>Three signals that say you&rsquo;re ready:</strong></p>
             <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="mailto:info@stratflow-ai.com">Contact</a></li>
+              <li>You can measure the value unit your customers actually care about (API calls, data processed, transactions scored)</li>
+              <li>Power users are subsidizing light users under your current seat model (usage variance &gt;3x across your base)</li>
+              <li>You have at least 6 months of usage data to model fair pricing tiers without guessing</li>
             </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Scale Without the Chaos</h1>
-            <p>Strategic operations consulting for tech companies who've raised capital and need systems that actually work. PM • Product • Data • Finance.</p>
-            <a href="mailto:info@stratflow-ai.com?subject=Let's%20Talk" class="cta-button">Book a Discovery Call</a>
-        </div>
-    </section>
-
-    <section class="problem">
-        <div class="container">
-            <h2>You've Hit a Growth Ceiling</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>❌ Roadmap Paralysis</h3>
-                    <p>Too many priorities. Everything's urgent. Your team doesn't know what to build next.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>❌ Data Blindspots</h3>
-                    <p>You're making million-dollar decisions with spreadsheets and gut feel.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>❌ Cross-Functional Chaos</h3>
-                    <p>Engineering, product, and sales are speaking different languages. Nothing ships on time.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>❌ Velocity Slowdown</h3>
-                    <p>You're hiring but shipping less. Coordination is eating productivity.</p>
-                </div>
+            <p><strong>Three signals that say wait:</strong> You&rsquo;re pre-PMF, your sales motion is still explaining the category, or your ops team doesn&rsquo;t yet have metered billing infrastructure in place.</p>
+            <div class="tbody-act">
+              <span class="tbody-act-lbl">Share your perspective or discuss on LinkedIn:</span>
+              <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="bt btgb" style="font-size:12px;padding:8px 16px">Join on LinkedIn &rarr;</a>
+              <button class="bt btgh" style="font-size:12px;padding:8px 16px" onclick="om('BridgeYield - Pricing Strategy discussion')">Email your take &rarr;</button>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section class="services" id="services">
-        <div class="container">
-            <h2>How I Help</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>🎯 Process Audit</h3>
-                    <p>2-week deep dive into your operations. I'll interview your team, audit workflows, and deliver a prioritized action plan.</p>
-                    <div class="price">Starting at $8,000</div>
-                </div>
-                <div class="service-card">
-                    <h3>🚀 PM Framework Build</h3>
-                    <p>Build scalable product management processes from scratch. Roadmap prioritization, sprint planning, stakeholder alignment.</p>
-                    <div class="price">$15,000 - $35,000</div>
-                </div>
-                <div class="service-card">
-                    <h3>📊 Data Infrastructure</h3>
-                    <p>Real-time dashboards that actually get used. Financial models, KPI tracking, automated reporting.</p>
-                    <div class="price">$12,000 - $25,000</div>
-                </div>
-                <div class="service-card">
-                    <h3>⚡ Strategic Retainer</h3>
-                    <p>Ongoing advisory. I'm embedded in your team 10-15 hours/month. Slack access, bi-weekly strategy calls.</p>
-                    <div class="price">$5,000 - $8,000/month</div>
-                </div>
-                <div class="service-card">
-                    <h3>💼 Fractional PM/COO</h3>
-                    <p>20-30 hours/month. I own specific outcomes. Attend key meetings, drive execution, scale your operations.</p>
-                    <div class="price">$10,000 - $15,000/month</div>
-                </div>
-                <div class="service-card">
-                    <h3>🔧 Custom Engagement</h3>
-                    <p>Got a unique challenge? Let's scope it together. Financial analysis, market research, operational turnarounds.</p>
-                    <div class="price">Let's talk</div>
-                </div>
+      <div class="thread" id="t2">
+        <div class="th" onclick="toggleThread('t2')">
+          <div class="tv"><button class="tvb" onclick="event.stopPropagation();vote(this)">&#9650;</button><div class="tvc">98</div></div>
+          <div class="ti">
+            <div class="tt">Build vs. Buy in 2025: The framework founders consistently get wrong</div>
+            <div class="te">It&rsquo;s not a cost question. It&rsquo;s a speed-of-learning question. Here&rsquo;s the decision tree.</div>
+            <div class="tm"><span class="ftg">Strategy</span><span class="ftg">Engineering</span><span class="fau">BridgeYield framework</span></div>
+          </div>
+          <div class="chev" id="chev-t2">&#9660;</div>
+        </div>
+        <div class="tbody" id="tbody-t2">
+          <div class="tbody-inner">
+            <div class="tbody-h">The framework</div>
+            <p>Most founders frame Build vs. Buy as a cost question: &ldquo;Which is cheaper?&rdquo; That&rsquo;s the wrong question. The right question is: <strong>&ldquo;What am I trying to learn, and which path teaches me faster?&rdquo;</strong></p>
+            <p>The thing you build tells you something the bought version never will &mdash; how your customers actually use it, where it breaks under your specific load, what features matter and which ones sit unused. But only if you know what you&rsquo;re trying to learn before you build.</p>
+            <p><strong>Build when:</strong></p>
+            <ul>
+              <li>The capability is core to your differentiation (competitors can&rsquo;t buy the same thing)</li>
+              <li>You have a specific hypothesis about customer behavior you need to test</li>
+              <li>The bought version comes with constraints that block your roadmap within 12 months</li>
+            </ul>
+            <p><strong>Buy when:</strong></p>
+            <ul>
+              <li>The capability is infrastructure (auth, billing, email, compliance) &mdash; not product</li>
+              <li>Speed to first customer matters more than optimization</li>
+              <li>The market has already commoditized what you&rsquo;d be building</li>
+            </ul>
+            <div class="tbody-act">
+              <span class="tbody-act-lbl">Discuss on LinkedIn or share a case study:</span>
+              <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="bt btgb" style="font-size:12px;padding:8px 16px">Join on LinkedIn &rarr;</a>
+              <button class="bt btgh" style="font-size:12px;padding:8px 16px" onclick="om('BridgeYield - Build vs Buy discussion')">Email your take &rarr;</button>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section class="results" id="results">
-        <div class="container">
-            <h2>Real Results</h2>
-            <div class="results-grid">
-                <div class="result-stat">
-                    <div class="number">70%</div>
-                    <div class="label">Faster roadmap decisions</div>
-                </div>
-                <div class="result-stat">
-                    <div class="number">40%</div>
-                    <div class="label">Reduction in feature bloat</div>
-                </div>
-                <div class="result-stat">
-                    <div class="number">30%</div>
-                    <div class="label">Burn rate reduction (no layoffs)</div>
-                </div>
-                <div class="result-stat">
-                    <div class="number">15+</div>
-                    <div class="label">Years of experience</div>
-                </div>
+      <div class="thread" id="t3">
+        <div class="th" onclick="toggleThread('t3')">
+          <div class="tv"><button class="tvb" onclick="event.stopPropagation();vote(this)">&#9650;</button><div class="tvc">87</div></div>
+          <div class="ti">
+            <div class="tt">AI as feature vs. AI as moat: Why 80% of &ldquo;AI products&rdquo; are feature flags in disguise</div>
+            <div class="te">The test is simple. Real AI moats are rarer than the pitch decks suggest.</div>
+            <div class="tm"><span class="ftg">AI Strategy</span><span class="ftg">Moat</span><span class="fau">BridgeYield framework</span></div>
+          </div>
+          <div class="chev" id="chev-t3">&#9660;</div>
+        </div>
+        <div class="tbody" id="tbody-t3">
+          <div class="tbody-inner">
+            <div class="tbody-h">The framework</div>
+            <p>The test is simple: <strong>could your competitor ship the same AI capability in 6 months?</strong> If yes, it&rsquo;s a feature. It might be a great feature &mdash; but wrapping it in a product doesn&rsquo;t make it a moat.</p>
+            <p>Real AI moats come from exactly three sources: <strong>proprietary data</strong> (data your competitor can&rsquo;t get), <strong>proprietary labels</strong> (human judgment encoded at scale that took years to build), or <strong>a feedback loop that compounds</strong> (more usage &rarr; better model &rarr; more usage).</p>
+            <p><strong>Examples of each:</strong></p>
+            <ul>
+              <li><strong>Proprietary data:</strong> FraudGoblin&rsquo;s MNO CDR agreements. Competitors can&rsquo;t call AT&amp;T and get this tomorrow.</li>
+              <li><strong>Proprietary labels:</strong> Kount&rsquo;s 20-year fraud label dataset from 6,000 merchants. You can&rsquo;t recreate this by hiring labelers.</li>
+              <li><strong>Compounding loop:</strong> Waze. Every driver improves the map for every other driver. The accuracy gap vs. a new entrant grows every day.</li>
+            </ul>
+            <p>If none of the three apply, you have an AI-enhanced product, not an AI moat. That&rsquo;s still valuable &mdash; but size your round accordingly.</p>
+            <div class="tbody-act">
+              <span class="tbody-act-lbl">Where does your AI product sit?</span>
+              <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="bt btgb" style="font-size:12px;padding:8px 16px">Discuss on LinkedIn &rarr;</a>
+              <button class="bt btgh" style="font-size:12px;padding:8px 16px" onclick="om('BridgeYield - AI Moat discussion')">Email your take &rarr;</button>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About Smitha</h2>
-            <div class="about-content">
-                <p>I've spent 15 years helping tech companies scale operations without losing their minds. From pre-seed chaos to Series C complexity, I've seen it all.</p>
-                <p>I specialize in taking messy, fast-growing companies and giving them the systems they need to scale — without the corporate bloat.</p>
-                <p><strong>My approach:</strong> Practical systems that your team will actually use. No buzzwords. No 50-page decks that sit in Google Drive. Just clarity, momentum, and results.</p>
-                
-                <div class="credentials">
-                    <div class="credential">
-                        <div class="icon">💼</div>
-                        <div class="text">Project Management</div>
-                    </div>
-                    <div class="credential">
-                        <div class="icon">📦</div>
-                        <div class="text">Product Strategy</div>
-                    </div>
-                    <div class="credential">
-                        <div class="icon">📊</div>
-                        <div class="text">Data Analysis</div>
-                    </div>
-                    <div class="credential">
-                        <div class="icon">💰</div>
-                        <div class="text">Financial Modeling</div>
-                    </div>
-                </div>
+      <div class="thread" id="t4">
+        <div class="th" onclick="toggleThread('t4')">
+          <div class="tv"><button class="tvb" onclick="event.stopPropagation();vote(this)">&#9650;</button><div class="tvc">76</div></div>
+          <div class="ti">
+            <div class="tt">GTM for enterprise: the first five deals should feel like consulting, not software</div>
+            <div class="te">The founders who close enterprise fast treat early clients as research partners, not contracts.</div>
+            <div class="tm"><span class="ftg">GTM</span><span class="ftg">Enterprise</span><span class="fau">BridgeYield framework</span></div>
+          </div>
+          <div class="chev" id="chev-t4">&#9660;</div>
+        </div>
+        <div class="tbody" id="tbody-t4">
+          <div class="tbody-inner">
+            <div class="tbody-h">The framework</div>
+            <p>Founders who close enterprise deals fast share one pattern: they treat the first 5 clients like bespoke consulting engagements. They over-serve, over-customize, and over-communicate. They extract every insight and use it to productize. The product they&rsquo;re selling at client 10 is fundamentally better because of clients 1&ndash;5.</p>
+            <p>Founders who build first and then sell spend 18 months discovering the features they built weren&rsquo;t the features buyers needed. They have a product, but not a sales motion. They have a deck, but not a champion inside an enterprise who knows how to justify the budget.</p>
+            <p><strong>The enterprise GTM rules for first five clients:</strong></p>
+            <ul>
+              <li>Price it as a contract with deliverables, not a SaaS subscription</li>
+              <li>The buyer&rsquo;s success metric is your definition of done &mdash; not your feature set</li>
+              <li>Run a QBR at 90 days even if nothing is broken</li>
+              <li>Your champion is more valuable than your contract &mdash; protect them</li>
+            </ul>
+            <div class="tbody-act">
+              <span class="tbody-act-lbl">Share your enterprise GTM story:</span>
+              <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="bt btgb" style="font-size:12px;padding:8px 16px">Join on LinkedIn &rarr;</a>
+              <button class="bt btgh" style="font-size:12px;padding:8px 16px" onclick="om('BridgeYield - GTM discussion')">Email your take &rarr;</button>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section class="final-cta">
-        <div class="container">
-            <h2>Ready to Scale Smarter?</h2>
-            <p>Book a free 30-minute discovery call. No pitch, just ideas.</p>
-            <a href="mailto:info@stratflow-ai.com?subject=Discovery%20Call%20Request" class="cta-button">Let's Talk</a>
-        </div>
-    </section>
+    </div>
+    <div style="margin-top:20px;text-align:center">
+      <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="bt btgb">See all discussions on LinkedIn &rarr;</a>
+    </div>
+  </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Stratflow-ai | Seattle, WA</p>
-            <p><a href="mailto:info@stratflow-ai.com">info@stratflow-ai.com</a> | <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a></p>
+  <div class="cb cbby"><div class="cbi"><h2 class="cbh">Want to collaborate or contribute?</h2><p class="cbs">BridgeYield is looking for practitioners with hard-won frameworks, investors with portfolio pattern recognition, and founders with problems worth debating in public.</p><div class="cba"><button class="bt btby" onclick="om('BridgeYield Community')">Get in touch &rarr;</button><button class="bt btgh" onclick="go('fraudgoblin')">See FraudGoblin</button></div></div></div>
+</div>
+<div class="page" id="p-fraudgoblin">
+  <!-- Hero -->
+  <div style="background:linear-gradient(180deg,rgba(255,92,92,.07),rgba(78,205,196,.04) 50%,transparent 100%);border-bottom:1px solid var(--bd)">
+    <div class="hero">
+      <div class="hb"><span class="bd" style="background:var(--fg)"></span> Seed-stage &middot; VC Pitch</div>
+      <h1 class="dh fg" style="max-width:700px">Your bank never sees <em>the SIM swap</em> coming. FraudGoblin does.</h1>
+      <p class="sb" style="max-width:600px">A real-time AI fraud decision engine that bridges the gap between mobile network events and financial transactions &mdash; stopping attacks in the 90-second window every other system misses.</p>
+      <div class="ha">
+        <button class="bt btfg" onclick="om('FraudGoblin Investment')">Talk to us about investing &rarr;</button>
+        <button class="bt" style="color:var(--mint);border:1px solid rgba(78,205,196,.3);background:none" onclick="document.getElementById('fg-problem').scrollIntoView({behavior:'smooth'})">See the problem &darr;</button>
+      </div>
+      <div class="hst">
+        <div class="sc"><span class="sc-d" style="background:var(--fg)"></span> $4.9B APP fraud market</div>
+        <div class="sc"><span class="sc-d" style="background:var(--mint)"></span> &lt;200ms decisions</div>
+        <div class="sc"><span class="sc-d" style="background:var(--by)"></span> 42 combined signals</div>
+        <div class="sc"><span class="sc-d" style="background:var(--sf)"></span> 97.2% target AUC</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <div id="fg-problem" class="ps">
+    <div class="ey fg">The problem</div>
+    <h2 class="sh">Current fraud systems are built for the wrong world</h2>
+    <p class="sb">Every major fraud system deployed in banking today was designed before smartphones became the primary attack surface. They look in the wrong place, at the wrong time, for the wrong signals.</p>
+    <div class="prob-grid">
+      <div class="prob-c">
+        <div class="prob-n">Problem 01</div>
+        <div class="prob-t">The telco&ndash;banking gap is invisible to every existing tool</div>
+        <div class="prob-b">When a fraudster swaps a SIM &mdash; convincing a carrier to transfer your number to their device &mdash; they own your phone. They can intercept every SMS OTP, pass every identity challenge, and appear completely legitimate to any financial system.<br><br>The bank never sees the telco event. The bank&rsquo;s fraud system has <strong>zero telco signals</strong>. It sees a legitimate login from the right device history, followed by a transaction. Everything looks fine. The money is already gone.</div>
+      </div>
+      <div class="prob-c">
+        <div class="prob-n">Problem 02</div>
+        <div class="prob-t">The 90-second window: batch systems are always too late</div>
+        <div class="prob-b">SIM swap fraud drains accounts within <strong>90 seconds</strong> of gaining control. The attacker scripts the entire flow: log in, change email, initiate P2P transfer, confirm via the hijacked phone number.<br><br>Most fraud systems run on T+5 minutes to T+24 hours batch cycles. Even the &ldquo;real-time&rdquo; rule engines at major banks make decisions at login, not continuously through the session. By the time the fraud flag fires, the money has already moved to a mule account in another institution.</div>
+      </div>
+      <div class="prob-c">
+        <div class="prob-n">Problem 03</div>
+        <div class="prob-t">Rule-based systems can&rsquo;t adapt; ML systems are missing half the data</div>
+        <div class="prob-b">Legacy rule engines catch yesterday&rsquo;s fraud patterns. Attackers rotate methods faster than compliance teams write rules.<br><br>Modern ML fraud engines improved precision significantly &mdash; but they&rsquo;re trained on <strong>financial signals only</strong>: transaction velocity, geo patterns, device fingerprints. They have no access to the telco layer where the attack setup happens. A geo-jump fraud model can&rsquo;t see that the SIM change happened 22 minutes before the transaction. It&rsquo;s operating blind on the most critical signal of all.</div>
+      </div>
+    </div>
+    <div class="solution-bridge">
+      <div style="font-family:var(--ds);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mint);margin-bottom:10px">The FraudGoblin bridge</div>
+      <div style="font-family:var(--ds);font-size:18px;font-weight:700;color:var(--w);margin-bottom:8px;letter-spacing:-.3px">The only fraud engine with eyes on both sides of the gap</div>
+      <p style="font-size:14px;color:var(--w7);line-height:1.7;max-width:640px;margin:0 auto">FraudGoblin ingests MNO signals (SIM swap events, device change timestamps, network anomalies) alongside financial signals and behavioral data &mdash; fusing all 42 in under 200ms. The bank finally sees what the telco sees, at the moment it matters.</p>
+    </div>
+  </div>
+
+  <!-- WHY REAL-TIME + WHY NOW -->
+  <div class="psa"><div class="ps">
+    <div class="ey mint">Why real-time and why now</div>
+    <h2 class="sh">Two questions that define the architecture</h2>
+    <div class="g2" style="margin-top:28px">
+      <div>
+        <div style="font-family:var(--ds);font-size:15px;font-weight:700;color:var(--mint);margin-bottom:14px">Why &lt;200ms is non-negotiable, not a performance target</div>
+        <p class="pr">Most fraud detection literature talks about milliseconds as a speed benchmark. For SIM swap fraud, it&rsquo;s a survival requirement. The attack window is 90 seconds. A decision at T+5 minutes is not a slow decision &mdash; <strong>it is no decision at all</strong>. The money is gone.</p>
+        <p class="pr">The architectural implications are severe. You cannot run sequential signal lookups. You cannot wait for a database join. Every signal must be pre-computed at rest, fetched in parallel, and scored by a model already loaded in memory. FraudGoblin&rsquo;s architecture pre-warms feature vectors in Redis, parallelizes all MNO and financial API calls, and runs inference on a model that never cold-starts.</p>
+        <div class="cx cx-m" style="margin-top:8px"><div class="cx-lb">The architectural difference</div><p style="font-size:13px;color:var(--w9)">Sequential: 5ms + 30ms + 80ms + 10ms = 125ms + queue wait + DB latency = 400ms+ (too slow)<br><br>Parallel (FraudGoblin): max(5ms, 30ms, 80ms, 10ms) + routing = &lt;100ms core + &lt;200ms end-to-end</p></div>
+      </div>
+      <div>
+        <div style="font-family:var(--ds);font-size:15px;font-weight:700;color:var(--by);margin-bottom:14px">Why now: three things that didn&rsquo;t exist 18 months ago</div>
+        <div class="cd" style="margin-bottom:10px;padding:16px 18px">
+          <div style="font-family:var(--ds);font-size:12px;font-weight:700;color:var(--by);margin-bottom:5px">&#x1F310; GSMA Open Gateway (2023&ndash;2024)</div>
+          <div style="font-size:13px;color:var(--w5);line-height:1.6">Standardized telco APIs across 50+ carriers globally. For the first time, a startup can access SIM swap signals from multiple MNOs through a single API &mdash; without a bespoke CDR agreement for each carrier. The infrastructure FraudGoblin needs now exists.</div>
         </div>
-    </footer>
+        <div class="cd" style="margin-bottom:10px;padding:16px 18px">
+          <div style="font-family:var(--ds);font-size:12px;font-weight:700;color:var(--fg);margin-bottom:5px">&#x2696;&#xFE0F; UK PSR Mandatory Reimbursement (Oct 2024)</div>
+          <div style="font-size:13px;color:var(--w5);line-height:1.6">UK Payment Systems Regulator now requires banks to reimburse APP fraud victims. France, EU PSD3, and CFPB are following. Regulation just turned fraud prevention from a cost center into a financial mandate. Every bank CFO now has a fraud budget conversation they didn&rsquo;t have in 2022.</div>
+        </div>
+        <div class="cd" style="padding:16px 18px">
+          <div style="font-family:var(--ds);font-size:12px;font-weight:700;color:var(--mint);margin-bottom:5px">&#x1F4C8; 1,200+ Digital Banks, No Fraud Team</div>
+          <div style="font-size:13px;color:var(--w5);line-height:1.6">The global neobank explosion created 1,200+ digital-first banks, most running with a fraud ops team of 2&ndash;5 people. They face the same attack surface as JPMorgan with a fraction of the defenses. They can&rsquo;t build this. They&rsquo;ll buy it.</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- TAM / SAM / SOM (no milestone table) -->
+  <div class="ps" style="text-align:center">
+    <div class="ey fg">Market size</div>
+    <h2 class="sh">TAM &middot; SAM &middot; SOM</h2>
+    <p class="sb" style="margin:0 auto">FraudGoblin targets a focused, defensible slice of a very large market.</p>
+    <div class="tamw">
+      <div class="tamc tc1"><div class="tam-lb" style="color:var(--fg)">TAM</div><div class="tam-v" style="color:var(--fg)">$52B</div><div class="tam-d">Global fraud detection<br>market by 2027</div></div>
+      <div class="tamc tc2"><div class="tam-lb" style="color:var(--by)">SAM</div><div class="tam-v" style="color:var(--by)">$8.4B</div><div class="tam-d">Digital banks, processors,<br>MNOs, Tier 2&ndash;3 banks</div></div>
+      <div class="tamc tc3"><div class="tam-lb" style="color:var(--mint)">SOM</div><div class="tam-v" style="color:var(--mint)">$320M</div><div class="tam-d">5-year realistic<br>capture</div></div>
+    </div>
+    <div class="tam-leg">
+      <div class="tli"><div class="tld" style="background:var(--fg)"></div><strong style="color:var(--w)">TAM $52B</strong>&nbsp;&mdash; all fraud detection software globally</div>
+      <div class="tli"><div class="tld" style="background:var(--by)"></div><strong style="color:var(--w)">SAM $8.4B</strong>&nbsp;&mdash; ~4,500 firms across digital banks, processors, MNOs, regulated banks</div>
+      <div class="tli"><div class="tld" style="background:var(--mint)"></div><strong style="color:var(--w)">SOM $320M</strong>&nbsp;&mdash; 80&ndash;120 clients at $120k blended ACV (2&ndash;4% SAM)</div>
+    </div>
+  </div>
+
+  <!-- PRODUCT FLOW -->
+  <div id="fg-flow" class="psa"><div class="ps">
+    <div class="ey mint">Product flow</div>
+    <h2 class="sh">Five steps. One verdict. Under 200ms.</h2>
+    <p class="sb">Every transaction runs through a five-stage pipeline. All stages run in parallel where possible. The model never cold-starts. Real-time or it doesn&rsquo;t work.</p>
+    <div class="flow">
+      <div class="fs"><span class="fem">&#x1F4E1;</span><div class="fn">Signal Ingest</div><div class="fms" style="background:rgba(78,205,196,.1);color:var(--mint)">&lt;5ms</div><div class="fd">Transaction arrives via REST webhook. Feature store queried in parallel across all sources simultaneously.</div></div>
+      <div class="fs"><span class="fem">&#x1F52C;</span><div class="fn">Feature Engine</div><div class="fms" style="background:rgba(255,217,61,.1);color:#FFD93D">&lt;30ms</div><div class="fd">42 signals computed: SIM swap age, geo jump delta, device fingerprint, behavioral drift score.</div></div>
+      <div class="fs"><span class="fem">&#x1F9E0;</span><div class="fn">ML Scoring</div><div class="fms" style="background:rgba(160,130,255,.1);color:#C4B0FF">&lt;80ms</div><div class="fd">XGBoost + Graph Neural Net ensemble. SHAP values computed inline for every decision.</div></div>
+      <div class="fs"><span class="fem">&#x1F4DC;</span><div class="fn">Policy Engine</div><div class="fms" style="background:rgba(255,92,92,.1);color:var(--fg)">&lt;10ms</div><div class="fd">Client-configured hard blocks and threshold overrides applied on top of model score.</div></div>
+      <div class="fs"><span class="fem">&#x26A1;</span><div class="fn">Response API</div><div class="fms" style="background:rgba(78,205,196,.15);color:var(--mint)">&lt;200ms total</div><div class="fd">ALLOW / REVIEW / DENY + risk score + top 5 contributing signals returned as JSON.</div></div>
+    </div>
+    <div class="g3" style="margin-top:18px">
+      <div class="cx cx-fg"><div class="cx-lb">Why sequential systems fail</div><p style="font-size:13px;color:var(--w9)">A sequential lookup of 42 signals takes 400&ndash;800ms minimum. FraudGoblin parallelizes all signal fetches using async Kafka consumers and pre-cached feature vectors in Redis. Sequential is not an option at 90-second attack windows.</p></div>
+      <div class="cx cx-m"><div class="cx-lb">Why the model never cold-starts</div><p style="font-size:13px;color:var(--w9)">The XGBoost model lives in RAM on the inference server, pinned at startup. No disk reads, no model loading on request. First request = same latency as millionth request.</p></div>
+      <div class="cx cx-sf"><div class="cx-lb">Full SHAP explainability</div><p style="font-size:13px;color:var(--w9)">Every decision includes feature-level attribution. Required for EU AI Act compliance, Visa/MC third-party reviews, and every model risk committee at a regulated bank.</p></div>
+    </div>
+  </div></div>
+
+  <!-- MOAT -->
+  <div class="ps">
+    <div class="ey mint">Defensibility</div>
+    <h2 class="sh">Four-layer competitive moat</h2>
+    <p class="sb">Each moat layer takes years to build and compounds with the others. Telco data agreements alone take 9&ndash;18 months per carrier.</p>
+    <div class="g4" style="margin-top:28px">
+      <div class="mc"><div class="mn">01</div><div class="mt2">Telco data agreements</div><div class="mb">Direct MNO CDR feeds + GSMA Open Gateway. Takes 9&ndash;18 months per carrier to close. By Year 2, FraudGoblin has agreements competitors can&rsquo;t fast-track.</div></div>
+      <div class="mc"><div class="mn">02</div><div class="mt2">Proprietary signal network</div><div class="mb">Every client contributes labeled fraud cases. More clients &rarr; better model &rarr; lower FPR &rarr; easier to close next client. Data compounds; software doesn&rsquo;t.</div></div>
+      <div class="mc"><div class="mn">03</div><div class="mt2">Compliance certification</div><div class="mb">SOC 2 Type II, GDPR, Visa/MC certification. Each takes 6&ndash;12 months. Together they form a wall that blocks fast-moving copycats from enterprise contracts.</div></div>
+      <div class="mc"><div class="mn">04</div><div class="mt2">Switching cost architecture</div><div class="mb">Once a client&rsquo;s model is trained on their labeled data and tuned to their patterns, switching means starting the model from zero. The longer they stay, the worse leaving gets.</div></div>
+    </div>
+    <div class="tw" style="margin-top:24px"><table><thead><tr><th>Comparable exit</th><th>Acquirer</th><th>Value</th><th>Why</th></tr></thead><tbody>
+      <tr><td>Featurespace</td><td>Visa</td><td>~$900M</td><td>Behavioral analytics + proprietary model data</td></tr>
+      <tr><td>Kount</td><td>Equifax</td><td>$640M</td><td>AI fraud prevention + identity network</td></tr>
+      <tr><td>ThreatMetrix</td><td>LexisNexis</td><td>$817M</td><td>Device fingerprinting + shared fraud signals</td></tr>
+      <tr><td>BioCatch</td><td>Francisco Partners</td><td>$1.3B val.</td><td>Behavioral biometrics for banking</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <!-- BMC -->
+  <div class="psa"><div class="ps">
+    <div class="ey fg">Business model</div>
+    <h2 class="sh">Business Model Canvas</h2>
+    <div class="bmc">
+      <div class="bmc-c bfg"><div class="bmc-l">Key Partners</div><strong>MNOs</strong>CDR data; revenue share<br><strong>GSMA</strong>Standardized telco APIs<br><strong>Visa / MC</strong>Certification + auth events<br><strong>AWS</strong>Cloud infra<br><strong>SIs</strong>Accenture, Deloitte</div>
+      <div class="bmc-c bfg"><div class="bmc-l">Key Activities</div><strong>Signal aggregation</strong>42-signal fusion &lt;200ms<br><strong>ML training</strong>Monthly retraining cycles<br><strong>API delivery</strong>99.9% uptime SLA<br><strong>Compliance</strong>SOC 2, GDPR, Visa cert</div>
+      <div class="bmc-c bmi sp2" style="grid-row:span 2"><div class="bmc-l">Value Propositions</div><strong>Digital banks</strong>Catch SIM swaps in the 90s window no existing tool sees<br><br><strong>Processors</strong>Drop FPR from ~0.8% to ~0.18% &mdash; millions in recovered legitimate revenue<br><br><strong>MNOs</strong>Turn CDR data into a revenue line via white-label signal API<br><br><strong>Regulated banks</strong>Explainable AI ready for model risk and regulatory review<br><br><strong>Core promise:</strong> The only fraud engine combining telco + financial signals in real time. &lt;200ms. Full SHAP explainability.</div>
+      <div class="bmc-c byy"><div class="bmc-l">Customer Relationships</div><strong>2-wk sandbox</strong>Free eval on real data<br><strong>30-day shadow</strong>Parallel scoring, zero risk<br><strong>Single-flow pilot</strong>Live on P2P transfers only<br><strong>Full production</strong>All channels + quarterly reviews</div>
+      <div class="bmc-c byy"><div class="bmc-l">Customer Segments</div><strong>Digital banks</strong>1,200+ &middot; $35k ACV<br><strong>Processors</strong>340+ &middot; $85k ACV<br><strong>MNOs</strong>85+ &middot; $200k ACV<br><strong>Super-apps</strong>120+ &middot; $120k ACV<br><strong>Regulated banks</strong>2,800+ &middot; $150k ACV</div>
+      <div class="bmc-c"><div class="bmc-l">Key Resources</div><strong>Telco agreements</strong>Hardest to replicate<br><strong>Trained ML models</strong>Improve with every label<br><strong>SOC 2 + GDPR</strong>Unlock enterprise deals</div>
+      <div class="bmc-c"><div class="bmc-l">Channels</div><strong>Direct enterprise sales</strong>Outbound to fraud leaders<br><strong>Fintech ecosystem</strong>Plaid, Stripe marketplaces<br><strong>MNO distribution</strong>MNO sells to their banks</div>
+      <div class="bmc-c sp3 bfg"><div class="bmc-l">Cost Structure</div><strong>Team</strong> $75&ndash;150k/month &middot; <strong>API costs</strong> $28&ndash;42k/month at 10M decisions &middot; <strong>Cloud</strong> $15&ndash;25k/month &middot; <strong>Compliance</strong> $10k/month</div>
+      <div class="bmc-c sp2 bmi"><div class="bmc-l">Revenue Streams</div><strong>Usage-based</strong> $0.004/decision &rarr; $0.0018 at 100M+ &middot; <strong>Platform tier</strong> $35k/month for 10M decisions &middot; <strong>Enterprise annual</strong> $150&ndash;500k ACV &middot; <strong>MNO white-label</strong> Revenue share</div>
+    </div>
+  </div></div>
+
+  <!-- CUSTOMER CANVAS (one customer, deep) -->
+  <div class="ps">
+    <div class="ey fg">Customer canvas</div>
+    <h2 class="sh">One customer, in depth</h2>
+    <p class="sb">A Series B digital bank. $2B in monthly transactions. 500k active accounts. Three people in fraud ops. This is what their problem looks like &mdash; and what changes when FraudGoblin is live.</p>
+
+    <div class="cust-wrap">
+      <!-- Header: Persona -->
+      <div class="cust-header">
+        <div class="cust-persona">
+          <div class="cust-avatar">&#x1F3E6;</div>
+          <div>
+            <div class="cust-name">Series B Digital Bank / Neobank</div>
+            <div class="cust-role">Buyer: VP Risk &middot; Head of Fraud Operations &middot; CTO</div>
+          </div>
+        </div>
+        <div class="cust-stats-row">
+          <div class="cust-stat"><div class="cust-stat-v">$2B</div><div class="cust-stat-l">Monthly transactions</div></div>
+          <div class="cust-stat"><div class="cust-stat-v">500k</div><div class="cust-stat-l">Active accounts</div></div>
+          <div class="cust-stat"><div class="cust-stat-v">3</div><div class="cust-stat-l">Fraud ops headcount</div></div>
+          <div class="cust-stat"><div class="cust-stat-v">0.3%</div><div class="cust-stat-l">Current SIM swap rate</div></div>
+          <div class="cust-stat"><div class="cust-stat-v">$6M</div><div class="cust-stat-l">Annual fraud losses</div></div>
+        </div>
+      </div>
+
+      <!-- Jobs / Pains -->
+      <div class="cust-body">
+        <div class="cust-col jobs">
+          <div class="cust-col-h">Jobs to be done</div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--sf)"></div><div class="cust-row-text">Protect growing transaction volume without growing the fraud ops team proportionally &mdash; can&rsquo;t hire 10 people to watch 10x more transactions</div></div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--sf)"></div><div class="cust-row-text">Prove adequate fraud controls to regulators during licensing review and annual audits</div></div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--sf)"></div><div class="cust-row-text">Keep FPR under 0.2% &mdash; every false positive blocks a real customer and drives a support ticket, a dispute, and a potential churn event</div></div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--sf)"></div><div class="cust-row-text">Survive the regulatory shift: PSR-style reimbursement mandates are coming, and the liability for missed fraud is about to sit with the bank, not the customer</div></div>
+        </div>
+        <div class="cust-col pains" style="border-right:none">
+          <div class="cust-col-h">Core pains today</div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--fg)"></div><div class="cust-row-text"><strong>SIM swap blind spot:</strong> current stack (Stripe Radar + manual review) sees the transaction, not the SIM change 30 minutes before it. Fraud rate on new accounts: 0.3%, vs. industry target of 0.05%</div></div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--fg)"></div><div class="cust-row-text"><strong>Manual review queue:</strong> team of 3 is reviewing 2,000+ flagged transactions/week. Average review time is 8 minutes. They can&rsquo;t keep up. High-risk reviews queue for 4&ndash;6 hours</div></div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--fg)"></div><div class="cust-row-text"><strong>Black-box decisions:</strong> current ML model can&rsquo;t explain a block to a regulator or a customer. &ldquo;Our model said so&rdquo; fails every audit</div></div>
+          <div class="cust-row"><div class="cust-row-dot" style="background:var(--fg)"></div><div class="cust-row-text"><strong>No telco layer:</strong> SIM swap event fires at the carrier; the bank&rsquo;s fraud system has exactly zero visibility into it until the account is already drained</div></div>
+        </div>
+      </div>
+
+      <!-- Before / After Scenarios -->
+      <div class="cust-scenario">
+        <div class="cust-scen-tabs">
+          <div class="cst active" id="tab-before" onclick="switchTab('before')">Without FraudGoblin &mdash; what happens today</div>
+          <div class="cst" id="tab-after" onclick="switchTab('after')">With FraudGoblin &mdash; what changes</div>
+        </div>
+        <div class="csp active" id="sp-before">
+          <div class="scenario-step"><div class="ss-n bad">1</div><div class="ss-t"><strong>T &minus;22 min:</strong> Fraudster visits carrier store with a fake ID. SIM swap completed. Your customer&rsquo;s number is now on the attacker&rsquo;s device. Your bank has zero signal this has happened.</div></div>
+          <div class="scenario-step"><div class="ss-n bad">2</div><div class="ss-t"><strong>T &minus;0:</strong> Attacker opens your app. Login passes &mdash; password is correct, device fingerprint looks familiar (attacker researched it), SMS OTP delivered to <em>their</em> phone. Auth system: all clear.</div></div>
+          <div class="scenario-step"><div class="ss-n bad">3</div><div class="ss-t"><strong>T + 18 sec:</strong> Attacker changes the account email to one they control. Your system sends a confirmation to the&hellip; hijacked number. They confirm it. Account fully owned.</div></div>
+          <div class="scenario-step"><div class="ss-n bad">4</div><div class="ss-t"><strong>T + 45 sec:</strong> $9,800 P2P transfer initiated to a mule account. Stripe Radar scores it: velocity normal, device familiar, amount below alert threshold. <strong>ALLOW.</strong></div></div>
+          <div class="scenario-step"><div class="ss-n bad">5</div><div class="ss-t"><strong>T + 90 sec:</strong> Money hits the mule account and immediately cascades to three more. Your fraud ops team gets the customer complaint 4 hours later. Recovery rate: ~3%.</div></div>
+        </div>
+        <div class="csp" id="sp-after">
+          <div class="scenario-step"><div class="ss-n good">1</div><div class="ss-t"><strong>T &minus;22 min:</strong> SIM swap event fires at the carrier. FraudGoblin&rsquo;s MNO feed ingests it in &lt;30 seconds via GSMA Open Gateway. The account is immediately flagged as &ldquo;SIM recently changed &mdash; high-risk window.&rdquo;</div></div>
+          <div class="scenario-step"><div class="ss-n good">2</div><div class="ss-t"><strong>T &minus;0:</strong> Attacker opens the app. Login triggers FraudGoblin. Within 180ms: SIM age = 22 minutes (extreme anomaly), device geo delta = 14 miles from last session, behavioral typing pattern mismatch. <strong>Risk score: 0.97.</strong></div></div>
+          <div class="scenario-step"><div class="ss-n good">3</div><div class="ss-t"><strong>T + 0.2 sec:</strong> FraudGoblin returns <strong>REVIEW</strong> with the top 3 signals: SIM swap age, geo delta, typing anomaly. Your app triggers step-up authentication: video selfie required. Attacker has no selfie. Session ends.</div></div>
+          <div class="scenario-step"><div class="ss-n good">4</div><div class="ss-t"><strong>T + 4 hours:</strong> Your real customer tries to log in, gets step-up auth, passes it, and sees a notification: &ldquo;We blocked a suspicious login attempt on your account.&rdquo; <strong>Trust increases.</strong> Fraud ops: zero intervention required.</div></div>
+          <div class="scenario-step"><div class="ss-n good">5</div><div class="ss-t"><strong>Result:</strong> $9,800 saved. 0 fraud ops hours consumed. Full SHAP decision log available for audit. Customer notified proactively. NPS event, not a churn event.</div></div>
+        </div>
+      </div>
+
+      <!-- ROI -->
+      <div class="cust-roi">
+        <div class="roi-item"><div class="roi-v">91%</div><div class="roi-l">SIM swap catch rate</div></div>
+        <div class="roi-item"><div class="roi-v">0.18%</div><div class="roi-l">Target FPR (from 0.8%)</div></div>
+        <div class="roi-item"><div class="roi-v">$5.5M</div><div class="roi-l">Annual fraud savings</div></div>
+        <div class="roi-item"><div class="roi-v">$35k</div><div class="roi-l">Annual FraudGoblin cost</div></div>
+        <div class="roi-item"><div class="roi-v">157&times;</div><div class="roi-l">Year 1 ROI</div></div>
+        <div class="roi-item"><div class="roi-v">2 weeks</div><div class="roi-l">Time to sandbox</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cb cbfg"><div class="cbi"><div style="font-size:44px;margin-bottom:14px">&#x1F47A;</div><h2 class="cbh">Interested in the raise?</h2><p class="cbs">We&rsquo;re raising $3.5M at seed to fund Phase 1&ndash;2: signal foundation, first pilot, and the shadow mode ROI that converts the pilot to a paying client. Full deck available on request.</p><div class="cba"><button class="bt btfg" onclick="om('FraudGoblin Investment')">Request the deck &rarr;</button><button class="bt btgh" onclick="go('stratflow')">Back to StratFlow</button></div></div></div>
+</div>
+<div style="height:1px;background:var(--bd)"></div>
+<div class="ft2"><div class="ft-in">
+  <div style="display:flex;align-items:center;gap:10px"><div class="lm" style="width:28px;height:28px;font-size:13px">S</div><span style="font-family:var(--ds);font-size:13px;font-weight:700;color:var(--w7)">Smitha Shivakumar</span></div>
+  <div class="ft-ls">
+    <span class="ft-l" onclick="go('stratflow')">StratFlow AI</span>
+    <span class="ft-l" onclick="go('bridgeyield')">BridgeYield</span>
+    <span class="ft-l" onclick="go('fraudgoblin')">FraudGoblin</span>
+    <a href="https://www.linkedin.com/company/bridgeyield/" target="_blank" rel="noopener" class="ft-l">LinkedIn</a>
+    <span class="ft-l" onclick="om()">Connect &rarr;</span>
+  </div>
+  <div class="ft-leg">&copy; 2026 Smitha Shivakumar &middot; hello@smithashivakumar.com &middot; Seattle, WA</div>
+</div></div>
+<div class="mo" id="mo" onclick="cmo(event)">
+  <div class="md">
+    <button class="mdc" onclick="cm()">&#x2715;</button>
+    <div id="mfv">
+      <div class="mdh">Connect with us</div>
+      <div class="mds">Whether you&rsquo;re exploring consulting, the BridgeYield community, or the FraudGoblin investment round &mdash; we&rsquo;d love to hear from you.</div>
+      <form id="cf" onsubmit="sf(event)">
+        <div class="fgrid">
+          <div class="fg2"><label class="fl">Your name *</label><input type="text" class="fi" name="name" required placeholder="Your full name"></div>
+          <div class="fg2"><label class="fl">Email *</label><input type="email" class="fi" name="email" required placeholder="you@company.com"></div>
+        </div>
+        <div class="fg2"><label class="fl">Company</label><input type="text" class="fi" name="company" placeholder="Your company or fund"></div>
+        <div class="fg2"><label class="fl">I&rsquo;m interested in *</label>
+          <select class="fse" name="subject" id="ss" required>
+            <option value="">Select a topic...</option>
+            <option value="StratFlow Consulting">StratFlow AI &mdash; consulting engagement</option>
+            <option value="BridgeYield Community">BridgeYield &mdash; community or collaboration</option>
+            <option value="FraudGoblin Investment">FraudGoblin &mdash; investment / VC conversation</option>
+            <option value="FraudGoblin Pilot">FraudGoblin &mdash; product pilot / demo</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="fg2"><label class="fl">Message *</label><textarea class="fta" name="message" required placeholder="Tell us a bit about what you have in mind..."></textarea></div>
+        <button type="submit" class="fsub" id="sb2">Send message &rarr;</button>
+        <div style="margin-top:10px;font-size:12px;color:var(--w3);text-align:center">Sent directly to hello@smithashivakumar.com</div>
+      </form>
+    </div>
+    <div id="msv" style="display:none;text-align:center;padding:28px 0">
+      <div style="font-size:44px;margin-bottom:12px">&#x2705;</div>
+      <div style="font-family:var(--ds);font-size:19px;font-weight:700;color:var(--w);margin-bottom:6px">Message sent!</div>
+      <div style="font-size:14px;color:var(--w5)">Smitha will be in touch within 1&ndash;2 business days.</div>
+      <button class="bt btgh" style="margin-top:20px" onclick="cm()">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+const pages=["stratflow","bridgeyield","fraudgoblin"];
+function go(id){
+  pages.forEach(p=>{
+    document.getElementById("p-"+p).classList.remove("active");
+    const n=document.getElementById("n"+p.replace("stratflow","sf").replace("bridgeyield","by").replace("fraudgoblin","fg"));
+    if(n){n.className="nl"}
+  });
+  document.getElementById("p-"+id).classList.add("active");
+  const m={stratflow:"sf",bridgeyield:"by",fraudgoblin:"fg"};
+  const an=document.getElementById("n"+m[id]);
+  if(an){an.className="nl a"+m[id]}
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function tm(){document.getElementById("mm").classList.toggle("open")}
+function om(sub){
+  document.getElementById("mo").classList.add("open");
+  document.getElementById("mfv").style.display="block";
+  document.getElementById("msv").style.display="none";
+  document.getElementById("sb2").disabled=false;
+  document.getElementById("sb2").textContent="Send message →";
+  if(sub){const s=document.getElementById("ss");for(let i=0;i<s.options.length;i++){if(s.options[i].value.toLowerCase().includes(sub.toLowerCase().split(" ")[0])){s.selectedIndex=i;break}}}
+  document.body.style.overflow="hidden";
+}
+function cm(){document.getElementById("mo").classList.remove("open");document.body.style.overflow="";try{document.getElementById("cf").reset()}catch(e){}}
+function cmo(e){if(e.target===document.getElementById("mo"))cm()}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")cm()});
+async function sf(e){
+  e.preventDefault();
+  const btn=document.getElementById("sb2");
+  btn.disabled=true;btn.textContent="Sending...";
+  const d=new FormData(e.target);
+  d.append("_replyto",d.get("email"));
+  d.append("_subject","[smithashivakumar.com] "+d.get("subject"));
+  // Replace YOUR_FORM_ID with your Formspree form ID (create free at formspree.io)
+  try{
+    const r=await fetch("https://formspree.io/f/YOUR_FORM_ID",{method:"POST",body:d,headers:{"Accept":"application/json"}});
+    if(r.ok){document.getElementById("mfv").style.display="none";document.getElementById("msv").style.display="block";return}
+  }catch(err){}
+  const sub=encodeURIComponent("[smithashivakumar.com] "+d.get("subject"));
+  const body=encodeURIComponent("Name: "+d.get("name")+"\nEmail: "+d.get("email")+"\nCompany: "+d.get("company")+"\n\nMessage:\n"+d.get("message"));
+  window.open("mailto:hello@smithashivakumar.com?subject="+sub+"&body="+body);
+  document.getElementById("mfv").style.display="none";
+  document.getElementById("msv").style.display="block";
+}
+function vote(btn){
+  const c=btn.parentElement.querySelector(".tvc");
+  const was=btn.classList.contains("voted");
+  btn.classList.toggle("voted",!was);
+  c.textContent=parseInt(c.textContent)+(was?-1:1);
+}
+function toggleThread(id){
+  const body=document.getElementById("tbody-"+id);
+  const chev=document.getElementById("chev-"+id);
+  const isOpen=body.classList.contains("open");
+  body.classList.toggle("open",!isOpen);
+  chev.classList.toggle("open",!isOpen);
+}
+function switchTab(tab){
+  document.getElementById("tab-before").classList.toggle("active",tab==="before");
+  document.getElementById("tab-after").classList.toggle("active",tab==="after");
+  document.getElementById("sp-before").classList.toggle("active",tab==="before");
+  document.getElementById("sp-after").classList.toggle("active",tab==="after");
+}
+go("stratflow");
+</script>
 </body>
 </html>
